@@ -13,17 +13,25 @@ By default there are only =cfltk= bundles available for systems with [[https://w
 
 * How to use this?
 
-**Please remember that this is only for musl-based systems.**
+*Please remember that this is only for musl-based systems.*
 
 At the root of your =fltk-rs= rust project, run the following command:
 
 #+begin_src sh
   CFLTK_BUNDLE_PREFIX=https://github.com/yveszoundi/cfltk-musl-lib/releases/latest/download cargo build
 #+end_src
-    
+
 * What is available?
 
 Please visit the [[https://github.com/yveszoundi/cfltk-musl-lib/releases][releases page]] for downloads (64-bit: [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]]).
+
+* How to build this?
+
+There's a GitHub Actions workflow definition at [[./github/workflows/build.yml]], but sadly the process is killed for =arm64=.
+
+GitHub is probably killing the =arm64= build due to CPU and RAM usage: all that is running via =QEMU= emulation...
+
+TBD find a workaround or publish a =Dockerfile= for local usage.
 
 * Where can I read more about this?
 
