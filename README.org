@@ -27,7 +27,7 @@ Please visit the [[https://github.com/yveszoundi/cfltk-musl-lib/releases][releas
 
 * How to build this?
 
-There's a GitHub Actions workflow definition at [[./github/workflows/build.yml]], but sadly the process is killed for =arm64=.
+There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]], but sadly the process is killed for =arm64=.
 
 GitHub is probably killing the =arm64= build due to CPU and RAM usage: all that is running via =QEMU= emulation...
 
