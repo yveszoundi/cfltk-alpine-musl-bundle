@@ -2,18 +2,27 @@
 
 [[https://github.com/yveszoundi/kernel-deblive-smallserver/blob/main/LICENSE][file:http://img.shields.io/badge/license-GNU%20GPLv3-blue.svg]] [[https://github.com/yveszoundi/kernel-deblive-smallserver/actions/workflows/build.yml][file:https://github.com/yveszoundi/cfltk-musl-lib/actions/workflows/build.yml/badge.svg]]
 
-/tl;dr/ [[https://github.com/MoAlyousef/cfltk][cfltk]] [[https://musl.libc.org/][musl]] bundles for [[https://github.com/fltk-rs/fltk-rs][fltk-rs]].
+/tl;dr/ [[https://github.com/MoAlyousef/cfltk][cfltk]] [[https://musl.libc.org/][musl]] bundles for [[https://github.com/fltk-rs/fltk-rs][fltk-rs]], built on [[https://www.alpinelinux.org/][Alpine Linux]].
 
 * What is this?
 
 This is a set of pre-built libraries for [[https://github.com/MoAlyousef/cfltk][cfltk]] targetting [[https://musl.libc.org/][musl libc]].
 
-By default there are only =cfltk= bundles available for systems with [[https://www.gnu.org/software/libc/][glibc]].
+- By default there are only =cfltk= bundles available for systems with [[https://www.gnu.org/software/libc/][glibc]].
+- With this project pre-built libraries are generated on [[https://www.alpinelinux.org/][Alpine Linux]].
 
 
 * How to use this?
 
-*Please remember that this is only for musl-based systems.*
+** What is the main use-case?
+
+This will allow building =musl= binaries of the entrusted document sanitizer application for [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]].
+
+entrusted binaries for musl will be generated from an Alpine Linux container image.
+
+** How to integrate with an fltk-rs project?
+
+*Please remember that this is only for musl-based systems (more specifically Alpine Linux for the initial use-case).*
 
 At the root of your =fltk-rs= rust project, run the following command:
 
@@ -21,17 +30,17 @@ At the root of your =fltk-rs= rust project, run the following command:
   CFLTK_BUNDLE_PREFIX=https://github.com/yveszoundi/cfltk-musl-lib/releases/latest/download cargo build
 #+end_src
 
+
 * What is available?
 
 Please visit the [[https://github.com/yveszoundi/cfltk-musl-lib/releases][releases page]] for downloads (64-bit: [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]]).
 
 * How to build this?
 
-There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]], but sadly the process is killed for =arm64=.
+There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]], but *sadly the process is killed* for =arm64=.
 
-GitHub is probably killing the =arm64= build due to CPU and RAM usage: all that is running via =QEMU= emulation...
-
-TBD find a workaround or publish a =Dockerfile= for local usage.
+- GitHub is probably killing the =arm64= build due to high resources usage (CPU and RAM): all that is running via =QEMU= emulation...
+- TBD find a workaround or publish recipes to build artifacts from a container image locally.
 
 * Where can I read more about this?
 
