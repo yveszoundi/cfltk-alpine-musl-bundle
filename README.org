@@ -18,7 +18,7 @@ This is a set of pre-built libraries for [[https://github.com/MoAlyousef/cfltk][
 
 This will allow building =musl= binaries of the entrusted document sanitizer application for [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]].
 
-entrusted binaries for musl will be generated from an Alpine Linux container image.
+=entrusted= binaries for musl will be generated from an =Alpine Linux= container image.
 
 ** How to integrate with an fltk-rs project?
 
@@ -34,6 +34,8 @@ At the root of your =fltk-rs= rust project, run the following command:
 * What is available?
 
 Please visit the [[https://github.com/yveszoundi/cfltk-musl-lib/releases][releases page]] for downloads (64-bit: [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]]).
+
+Release artifacts are named using [[https://github.com/fltk-rs/fltk-rs/blob/55da3764467ff84de46fb428e7b1a5fad0711344/fltk-sys/build/bundled.rs#L4][default naming conventions]] expected by =fltk-rs=.
 
 * How to build this?
 
