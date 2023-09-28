@@ -1,6 +1,6 @@
 #+TITLE: README
 
-[[https://github.com/yveszoundi/kernel-deblive-smallserver/blob/main/LICENSE][file:http://img.shields.io/badge/license-GNU%20GPLv3-blue.svg]] [[https://github.com/yveszoundi/kernel-deblive-smallserver/actions/workflows/build.yml][file:https://github.com/yveszoundi/cfltk-musl-lib/actions/workflows/build.yml/badge.svg]]
+[[https://github.com/yveszoundi/kernel-deblive-smallserver/blob/main/LICENSE][file:http://img.shields.io/badge/license-GNU%20GPLv3-blue.svg]] [[https://github.com/yveszoundi/cfltk-musl-lib/actions/workflows/build.yml][file:https://github.com/yveszoundi/cfltk-musl-lib/actions/workflows/build.yml/badge.svg]]
 
 /tl;dr/ [[https://github.com/MoAlyousef/cfltk][cfltk]] [[https://musl.libc.org/][musl]] bundles for [[https://github.com/fltk-rs/fltk-rs][fltk-rs]], built on [[https://www.alpinelinux.org/][Alpine Linux]].
 
