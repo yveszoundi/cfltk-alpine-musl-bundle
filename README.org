@@ -39,10 +39,10 @@ Release artifacts are named using [[https://github.com/fltk-rs/fltk-rs/blob/55da
 
 * How to build this?
 
-There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]], but *sadly the process is killed* for =arm64=.
+There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]].
 
-- GitHub is probably killing the =arm64= build due to high resources usage (CPU and RAM): all that is running via =QEMU= emulation...
-- TBD find a workaround or publish recipes to build artifacts from a container image locally.
+- You should be able to run the same commands in an Alpine Linux container using =podman= or =docker=.
+- For arm64, we don't use the =cmake= =--parallel= flag because it creates timeouts on GitHub Actions (agent disconnected error messages).
 
 * Where can I read more about this?
 
