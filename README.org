@@ -6,7 +6,7 @@
 
 * What is this?
 
-This is a set of pre-built libraries for [[https://github.com/MoAlyousef/cfltk][cfltk]] targetting [[https://musl.libc.org/][musl libc]].
+This is a set of pre-built libraries for [[https://github.com/MoAlyousef/cfltk][cfltk]] targetting [[https://musl.libc.org/][musl libc]] for [[https://www.alpinelinux.org/][Alpine Linux]].
 
 - By default there are only =cfltk= bundles available for systems with [[https://www.gnu.org/software/libc/][glibc]].
 - With this project pre-built libraries are generated on [[https://www.alpinelinux.org/][Alpine Linux]].
@@ -15,7 +15,7 @@ This is a set of pre-built libraries for [[https://github.com/MoAlyousef/cfltk][
 
 ** What is the main use-case?
 
-This will allow building =musl= binaries of the entrusted document sanitizer application for [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]].
+This will allow building =musl= binaries of the [[https://github.com/rimerosolutions/entrusted][entrusted]] document sanitizer application for [[https://en.wikipedia.org/wiki/X86-64][amd64/x86_64]] and [[https://en.wikipedia.org/wiki/AArch64][arm64/aarch64]].
 
 =entrusted= binaries for musl will be generated from an =Alpine Linux= container image.
 
@@ -39,7 +39,7 @@ Release artifacts are named using [[https://github.com/fltk-rs/fltk-rs/blob/55da
 There's a GitHub Actions workflow definition at [[./.github/workflows/build.yml]].
 
 - You should be able to run the same commands in an Alpine Linux container using =podman= or =docker=.
-- For arm64, we don't use the =cmake= =--parallel= flag because it creates timeouts on GitHub Actions (agent disconnected error messages).
+- For arm64, the =cmake= =--parallel= flag is not specified because it creates timeouts on GitHub Actions (build interrupted abruptly with =agent disconnected= error messages).
 
 * Where can I read more about this?
 
