@@ -21,12 +21,23 @@ This will allow building =musl= binaries of the [[https://github.com/rimerosolut
 
 ** How to integrate with an fltk-rs project?
 
-*Please remember that this is only for musl-based systems (more specifically Alpine Linux for the initial use-case).* At the root of your =fltk-rs= rust project, issue the following command:
+*Note that this is only for musl-based systems (more specifically Alpine Linux for the initial use-case).* 
+
+*** On Alpine x86_64
+
+At the root of your =fltk-rs= rust project, please issue the following command:
 
 #+begin_src sh
-  CFLTK_BUNDLE_PREFIX=https://github.com/yveszoundi/cfltk-alpine-musl-bundle/releases/latest/download cargo build
+  CFLTK_BUNDLE_URL='https://github.com/yveszoundi/cfltk-alpine-musl-bundle/releases/download/1.4.13/lib_x86_64-alpine-linux-musl.tar.gz' cargo build
 #+end_src
 
+*** On Alpine aarch64
+
+At the root of your =fltk-rs= rust project, please issue the following command:
+
+#+begin_src sh
+  CFLTK_BUNDLE_URL='https://github.com/yveszoundi/cfltk-alpine-musl-bundle/releases/download/1.4.13/lib_aarch64-alpine-linux-musl.tar.gz' cargo build
+#+end_src
 
 * What is available?
 
