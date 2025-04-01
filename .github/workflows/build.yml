@@ -8,12 +8,12 @@ on:
       alpine_ver:
         description: 'alpine container image version number'
         required: true
-        default: '3.18.3'
+        default: '3.21.3'
         type: 'string'
       cfltk_ver:
         description: 'cfltk release version number'
         required: true
-        default: '1.4.23'
+        default: '1.5.3'
         type: 'string'
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
 
         docker run --rm --platform linux/arm64 -v "${{ github.workspace }}/artifacts":/output  docker.io/alpine:${{ inputs.alpine_ver }} /bin/sh -c "apk add rust cargo git cmake make g++ pango-dev fontconfig-dev libxinerama-dev libxfixes-dev libxcursor-dev libpng-dev cairo-dev librsvg-dev wayland-dev wayland-protocols wayland-libs-client wayland-libs-cursor wayland-libs-egl libxkbcommon-dev zlib-dev wayland-libs-egl mesa-egl mesa-dev && git clone https://github.com/moalyousef/cfltk && cd cfltk && git checkout ${{ inputs.cfltk_ver }} && git submodule update --init --recursive && cmake -B bin -S . -DCMAKE_BUILD_TYPE=Release -DOPTION_USE_SYSTEM_LIBPNG=OFF -DOPTION_USE_SYSTEM_LIBJPEG=OFF -DOPTION_USE_SYSTEM_ZLIB=OFF -DOPTION_USE_GL=OFF -DFLTK_BUILD_EXAMPLES=OFF -DFLTK_BUILD_TEST=OFF -DOPTION_USE_THREADS=ON -DOPTION_LARGE_FILE=ON -DOPTION_BUILD_HTML_DOCUMENTATION=OFF -DOPTION_BUILD_PDF_DOCUMENTATION=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON && cmake --build bin && cp bin/libcfltk.a ./bin/fltk/lib/ && cd bin/fltk && tar zcvf lib_aarch64-alpine-linux-${{ inputs.cfltk_ver }}-musl.tar.gz lib && cp lib_aarch64-alpine-linux-${{ inputs.cfltk_ver }}-musl.tar.gz /output/"
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: lib_aarch64-alpine-linux-musl
         path: ${{ github.workspace }}/artifacts
